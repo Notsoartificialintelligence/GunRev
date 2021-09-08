@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class RefreshKey : PlayerItem
     {

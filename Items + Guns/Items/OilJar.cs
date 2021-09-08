@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using ItemAPI;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class OilJar : PassiveItem
     {

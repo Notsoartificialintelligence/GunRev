@@ -6,11 +6,11 @@ using System.IO;
 using UnityEngine;
 using System.Reflection;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class AudioResourceLoader
     {
-        public static readonly string ResourcesDirectoryName = "GundustrialRevolution";
+        public static readonly string ResourcesDirectoryName = "GunRev";
 
         public static readonly string pathzip = Module.ZipFilePath;
         public static readonly string pathfile = Module.FilePath;

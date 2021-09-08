@@ -16,7 +16,7 @@ using System.Collections.ObjectModel;
 
 using UnityEngine.Serialization;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 	internal class EmmisiveBeams : MonoBehaviour
 	{

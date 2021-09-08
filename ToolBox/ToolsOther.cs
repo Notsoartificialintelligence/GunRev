@@ -6,7 +6,7 @@ using tk2dRuntime.TileMap;
 using UnityEngine;
 
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public static class ToolsOther
     {

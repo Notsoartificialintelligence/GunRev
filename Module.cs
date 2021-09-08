@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class Module : ETGModule
     {
@@ -24,8 +24,6 @@ namespace GundustrialRevolution
                 EnemyAPI.Hooks.Init();
                 EnemyAPI.EnemyTools.Init();
                 EnemyAPI.EnemyBuilder.Init();
-                EnemyAPI.EnemyBuilder.Init();
-                ItemAPI.FakePrefabHooks.Init();
                 ItemBuilder.Init();
                 Module.Strings = new AdvancedStringDB();
                 GungeonAPI.Tools.Init();
@@ -156,7 +154,7 @@ namespace GundustrialRevolution
 
             catch (Exception e)
             {
-                ETGModConsole.Log("<color=#{TEXT_COLOR}>{MOD_NAME}: {e.Message}</color>");
+                ETGModConsole.Log($"<color=#{TEXT_COLOR}>{MOD_NAME}: {e.Message}</color>");
                 ETGModConsole.Log(e.StackTrace);
                 Log(e.Message);
                 Log("\t" + e.StackTrace);

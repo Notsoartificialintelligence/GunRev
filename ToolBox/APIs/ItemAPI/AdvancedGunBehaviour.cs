@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
-using GundustrialRevolution;
+using GunRev;
 using System.Collections;
 
 namespace ItemAPI

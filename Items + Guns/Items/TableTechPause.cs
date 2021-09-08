@@ -7,7 +7,7 @@ using ItemAPI;
 using Dungeonator;
 using System.Collections.ObjectModel;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class TableTechPause : PassiveItem
     {

@@ -5,7 +5,7 @@ using MonoMod;
 using UnityEngine;
 using ItemAPI;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 
 	public class Catalyst : GunBehaviour

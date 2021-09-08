@@ -7,7 +7,7 @@ using Ionic.Zip;
 using UnityEngine;
 
  
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class ResourceLoaderSoundbanks
     {
@@ -74,7 +74,7 @@ namespace GundustrialRevolution
                 }
             }
             // Zip file wasn't found. Try to load from Mod folder instead.
-            AutoloadFromPath(AudioResourceLoader.pathfile, "GundustrialRevolution");
+            AutoloadFromPath(AudioResourceLoader.pathfile, "GunRev");
         }
 
         public void AutoloadFromPath(string path, string prefix)

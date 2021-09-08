@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 
     public class MegaCannon : GunBehaviour

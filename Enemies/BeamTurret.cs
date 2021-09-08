@@ -13,7 +13,7 @@ using GungeonAPI;
 using static DirectionalAnimation;
 using EnemyAPI;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 	public class BeamTurret : AIActor
 	{

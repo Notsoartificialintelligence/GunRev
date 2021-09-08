@@ -8,7 +8,7 @@ using MonoMod;
 using UnityEngine;
 using ItemAPI;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class WhileGunShoot : AdvancedGunBehaviour
     {

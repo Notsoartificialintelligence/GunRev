@@ -3,7 +3,7 @@ using MonoMod.RuntimeDetour;
 using UnityEngine;
 
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class EnemyReplace : MonoBehaviour
     {

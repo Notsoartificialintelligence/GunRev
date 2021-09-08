@@ -6,7 +6,7 @@ using UnityEngine;
 using Dungeonator;
 using Gungeon;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 	// Token: 0x02000002 RID: 2
 	public class AdvancedDualWieldSynergyProcessor : MonoBehaviour

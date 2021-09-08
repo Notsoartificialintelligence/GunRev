@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 	// Token: 0x0200001A RID: 26
 	public class AdvancedStringDB

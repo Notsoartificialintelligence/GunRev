@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
 	// Token: 0x02000026 RID: 38
 	public sealed class AdvancedStringDBTable

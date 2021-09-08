@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using ItemAPI;
 
-namespace GundustrialRevolution
+namespace GunRev
 {
     public class Graph : PassiveItem
     {
@@ -13,7 +13,7 @@ namespace GundustrialRevolution
         {
             string itemName = "Graph";
 
-            string resourceName = "GunRev/Resources/graph.png";
+            string resourceName = "GunRev/Resources/graph";
 
             GameObject obj = new GameObject(itemName);
 
