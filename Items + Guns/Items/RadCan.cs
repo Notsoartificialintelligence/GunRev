@@ -31,9 +31,9 @@ namespace GunRev
         {
             AkSoundEngine.PostEvent("Play_WPN_Bubbler_Drink_01", base.gameObject);
             user.healthHaver.ApplyDamage(2f, Vector2.zero, null, CoreDamageTypes.None);
-            StatModifier.Create(PlayerStats.StatType.RateOfFire, StatModifier.ModifyMethod.ADDITIVE, 0.33f);
-            StatModifier.Create(PlayerStats.StatType.Damage, StatModifier.ModifyMethod.ADDITIVE, 0.33f);
-            StatModifier.Create(PlayerStats.StatType.MovementSpeed, StatModifier.ModifyMethod.ADDITIVE, 0.33f);
+            StatModifier.Create(PlayerStats.StatType.RateOfFire, StatModifier.ModifyMethod.ADDITIVE, 1f);
+            StatModifier.Create(PlayerStats.StatType.Damage, StatModifier.ModifyMethod.ADDITIVE, 1f);
+            StatModifier.Create(PlayerStats.StatType.MovementSpeed, StatModifier.ModifyMethod.ADDITIVE, 1f);
         }
     }
 }
