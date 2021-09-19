@@ -8,56 +8,56 @@ using ItemAPI;
 namespace GunRev
 {
 
-    public class Atomic : GunBehaviour
+    public class Gunbatus : GunBehaviour
     {
 
         public static void Add()
         {
-            Gun gun = ETGMod.Databases.Items.NewGun("Reactor Core", "atomic");
-            Game.Items.Rename("outdated_gun_mods:reactor_core", "ai:reactor_core");
-            gun.gameObject.AddComponent<Atomic>();
-            gun.SetShortDescription("SCRAM");
-            gun.SetLongDescription("Shoots spent nuclear fuel.\n\nThere is a faded sticker on the side of the gun, with a logo that reads \"ATOMICO\".\nThe gun feels dangerously hot in your hands.");
-            gun.SetupSprite(null, "atomic_idle_001", 8);
+            Gun gun = ETGMod.Databases.Items.NewGun("Gunbatus", "gunbatus");
+            Game.Items.Rename("outdated_gun_mods:gunbatus", "ai:gunbatus");
+            gun.gameObject.AddComponent<Gunbatus>();
+            gun.SetShortDescription("Solar Sailer");
+            gun.SetLongDescription("Shoots controllable drones.\n\nA strange machine from a distant galaxy. It is capable of creating smaller machines and deploying them near-infinitely.");
+            gun.SetupSprite(null, "gunbatus_idle_001", 8);
             gun.SetAnimationFPS(gun.shootAnimation, 16);
-            Gun other = PickupObjectDatabase.GetById(38) as Gun;
+            Gun other = PickupObjectDatabase.GetById(36) as Gun;
             gun.AddProjectileModuleFrom(other, true, false);
             gun.DefaultModule.ammoCost = 1;
             gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.Automatic;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
-            gun.reloadTime = 1.5f;
-            gun.DefaultModule.cooldownTime = 0.2f;
-            gun.DefaultModule.numberOfShotsInClip = 16;
-            gun.SetBaseMaxAmmo(256);
-            gun.quality = PickupObject.ItemQuality.B;
-            gun.gunClass = GunClass.PISTOL;
-            gun.encounterTrackable.EncounterGuid = "KABOOM?";
+            gun.reloadTime = 3f;
+            gun.DefaultModule.cooldownTime = 0.6f;
+            gun.DefaultModule.numberOfShotsInClip = 4;
+            gun.SetBaseMaxAmmo(32);
+            gun.quality = PickupObject.ItemQuality.A;
+            gun.gunClass = GunClass.SILLY;
+            gun.encounterTrackable.EncounterGuid = "nyoom funni spaceship";
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
-            projectile.SetProjectileSpriteRight("atomic_projectile", 8, 3, false, tk2dBaseSprite.Anchor.MiddleCenter, 6, 3);
             projectile.shouldRotate = true;
             projectile.gameObject.SetActive(false);
             FakePrefab.MarkAsFakePrefab(projectile.gameObject);
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             gun.DefaultModule.projectiles[0] = projectile;
-            projectile.AppliesPoison = true;
-            projectile.PoisonApplyChance = 0.7f;
-            projectile.healthEffect = PickupObjectDatabase.GetById(204).GetComponent<BulletStatusEffectItem>().HealthModifierEffect;
-            projectile.baseData.damage = 11f;
-            projectile.baseData.speed = 17f;
-            projectile.baseData.range = 8f;
+            projectile.baseData.damage = 5f;
+            projectile.baseData.speed = 40f;
+            projectile.baseData.range = 1000f;
+            ExplosiveModifier explosiveModifier = projectile.gameObject.AddComponent<ExplosiveModifier>();
+            explosiveModifier.doExplosion = true;
+            explosiveModifier.explosionData = GameManager.Instance.Dungeon.sharedSettingsPrefab.DefaultSmallExplosionData;
+            RemoteBulletsProjectileBehaviour remotebulletbehaviour = projectile.gameObject.AddComponent<RemoteBulletsProjectileBehaviour>();
+            remotebulletbehaviour.trackingTime = 1000f;
+            remotebulletbehaviour.trackingSpeed = 100f;
             projectile.transform.parent = gun.barrelOffset;
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.CUSTOM;
-            gun.DefaultModule.customAmmoType = "gem";
+            projectile.SetProjectileSpriteRight("gunbatusprojectile_001", 8, 6, false, tk2dBaseSprite.Anchor.MiddleCenter, 6, 4);
+            gun.DefaultModule.customAmmoType = "exotic";
             ETGMod.Databases.Items.Add(gun, null, "ANY");
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
-            PlayerController player = (PlayerController)gun.CurrentOwner;
-#pragma warning restore IDE0059 // Unnecessary assignment of a value
         }
 
         public override void OnPostFired(PlayerController player, Gun gun)
         {
             gun.PreventNormalFireAudio = true;
-            AkSoundEngine.PostEvent("Play_WPN_magnum_shot_01", gameObject);
+            AkSoundEngine.PostEvent("Play_WPN_yarirocketlauncher_shot_01", gameObject);
         }
         private bool HasReloaded;
         protected void Update()
@@ -83,7 +83,7 @@ namespace GunRev
                 HasReloaded = false;
                 AkSoundEngine.PostEvent("Stop_WPN_All", base.gameObject);
                 base.OnReloadPressed(player, gun, bSOMETHING);
-                AkSoundEngine.PostEvent("Play_WPN_magnum_reload_01", base.gameObject);
+                AkSoundEngine.PostEvent("Play_WPN_yarirocketlauncher_reload_01", base.gameObject);
             }
         }
     }

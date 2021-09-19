@@ -22,6 +22,7 @@ namespace GunRev
 			gun.SetAnimationFPS(gun.shootAnimation, 16);
 			gun.SetBaseMaxAmmo(500);
 			gun.quality = PickupObject.ItemQuality.B;
+			gun.gunClass = GunClass.SHOTGUN;
 			gun.encounterTrackable.EncounterGuid = "A Nutty Adventure";
 
 			for (int i = 0; i < 5; i++)

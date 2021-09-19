@@ -12,7 +12,7 @@ namespace GunRev
     public class Module : ETGModule
     {
         public static readonly string MOD_NAME = "Gundustrial Revolution";
-        public static readonly string VERSION = "1.0.0";
+        public static readonly string VERSION = "1.1.0";
         public static readonly string TEXT_COLOR = "#677e9e";
         public static string ZipFilePath;
         public static string FilePath;
@@ -38,6 +38,7 @@ namespace GunRev
                     typeof(Module).GetMethod(nameof(Module.OnQuickRestart))
                 );
 
+                //version 1.0.0
                 Vintage.Add();
                 Atomic.Add();
                 Graph.Register();
@@ -58,6 +59,12 @@ namespace GunRev
                 Catalyst.Add();
                 SingleUseGun.Add();
                 TableTechPause.Register();
+
+                //version 1.1.0
+                Gunbatus.Add();
+                Trigunometry.Add();
+                SilverCursor.Register();
+                Button.Register();
 
                 //cheeky form transformations
                 //Guntry2.Add();
@@ -144,6 +151,7 @@ namespace GunRev
                     "Also try Children Of Kaliber!",
                     "Also try Cutting Room Floor!",
                     "Also try A Bleaker Item Pack!",
+                    "Also try King's Items!",
                 };
                 System.Random randomselector = new System.Random();
                 int index = randomselector.Next(Quotes.Count);

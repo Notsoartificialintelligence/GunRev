@@ -30,6 +30,7 @@ namespace GunRev
             gun.DefaultModule.numberOfShotsInClip = 8;
             gun.SetBaseMaxAmmo(256);
             gun.quality = PickupObject.ItemQuality.A;
+            gun.gunClass = GunClass.SILLY;
             gun.encounterTrackable.EncounterGuid = "WASD";
 
             Projectile W = UnityEngine.Object.Instantiate<Projectile>((PickupObjectDatabase.GetById(56) as Gun).DefaultModule.projectiles[0]);

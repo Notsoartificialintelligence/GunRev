@@ -43,6 +43,7 @@ namespace GunRev
             gun.SetBaseMaxAmmo(128);
             // Here we just set the quality of the gun and the "EncounterGuid", which is used by Gungeon to identify the gun.
             gun.quality = PickupObject.ItemQuality.C;
+            gun.gunClass = GunClass.PISTOL;
             gun.encounterTrackable.EncounterGuid = "The Gundustrial Revolution and its consequences have been a disaster for the Gundead race.";
             //This block of code helps clone our projectile. Basically it makes it so things like Shadow Clone and Hip Holster keep the stats/sprite of your custom gun's projectiles.
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);

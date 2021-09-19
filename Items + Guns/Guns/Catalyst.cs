@@ -23,6 +23,7 @@ namespace GunRev
 			gun.SetAnimationFPS(gun.reloadAnimation, 6);
 			gun.SetBaseMaxAmmo(360);
 			gun.quality = PickupObject.ItemQuality.C;
+			gun.gunClass = GunClass.SHOTGUN;
 			gun.encounterTrackable.EncounterGuid = "Reaction videos or something";
 
 			for (int i = 0; i < 7; i++)

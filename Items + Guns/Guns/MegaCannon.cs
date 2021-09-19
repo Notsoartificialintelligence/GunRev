@@ -35,6 +35,7 @@ namespace GunRev
             gun.DefaultModule.numberOfShotsInClip = 2;
             gun.SetBaseMaxAmmo(20);
             gun.quality = PickupObject.ItemQuality.S;
+            gun.gunClass = GunClass.SILLY;
             gun.encounterTrackable.EncounterGuid = "Signature look of superiority";
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
             projectile.gameObject.SetActive(false);

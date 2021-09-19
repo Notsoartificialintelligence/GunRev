@@ -96,7 +96,8 @@ namespace GunRev
 
             gun.DefaultModule.projectiles[0] = projectile;
 
-            gun.quality = PickupObject.ItemQuality.B; //D
+            gun.quality = PickupObject.ItemQuality.B;
+            gun.gunClass = GunClass.BEAM;
             ETGMod.Databases.Items.Add(gun, null, "ANY");
 
         }

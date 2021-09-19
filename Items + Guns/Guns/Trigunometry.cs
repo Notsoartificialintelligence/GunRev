@@ -8,17 +8,20 @@ using ItemAPI;
 namespace GunRev
 {
 
-    public class Atomic : GunBehaviour
+    public class Trigunometry : GunBehaviour
     {
-
+        int counter = 0;
+        int randomdmg1 = 0;
+        int randomdmg2 = 0;
+        int combineddmg = 0;
         public static void Add()
         {
-            Gun gun = ETGMod.Databases.Items.NewGun("Reactor Core", "atomic");
-            Game.Items.Rename("outdated_gun_mods:reactor_core", "ai:reactor_core");
-            gun.gameObject.AddComponent<Atomic>();
-            gun.SetShortDescription("SCRAM");
-            gun.SetLongDescription("Shoots spent nuclear fuel.\n\nThere is a faded sticker on the side of the gun, with a logo that reads \"ATOMICO\".\nThe gun feels dangerously hot in your hands.");
-            gun.SetupSprite(null, "atomic_idle_001", 8);
+            Gun gun = ETGMod.Databases.Items.NewGun("Trigunometry", "trigunometry");
+            Game.Items.Rename("outdated_gun_mods:trigunometry", "ai:trigunometry");
+            gun.gameObject.AddComponent<Trigunometry>();
+            gun.SetShortDescription("It's A Sine!");
+            gun.SetLongDescription("The damage of the first two bullets is randomised, while the third is the sum of the previous two shot's damage.\n\nRequired theory in advanced gunometry, along with the Bullet Bisector theory and the Chamber area equation.");
+            gun.SetupSprite(null, "trigunometry_idle_001", 8);
             gun.SetAnimationFPS(gun.shootAnimation, 16);
             Gun other = PickupObjectDatabase.GetById(38) as Gun;
             gun.AddProjectileModuleFrom(other, true, false);
@@ -26,45 +29,65 @@ namespace GunRev
             gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.Automatic;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
             gun.reloadTime = 1.5f;
-            gun.DefaultModule.cooldownTime = 0.2f;
-            gun.DefaultModule.numberOfShotsInClip = 16;
-            gun.SetBaseMaxAmmo(256);
-            gun.quality = PickupObject.ItemQuality.B;
+            gun.DefaultModule.cooldownTime = 0.3f;
+            gun.DefaultModule.numberOfShotsInClip = 3;
+            gun.SetBaseMaxAmmo(333);
+            gun.quality = PickupObject.ItemQuality.A;
             gun.gunClass = GunClass.PISTOL;
-            gun.encounterTrackable.EncounterGuid = "KABOOM?";
+            gun.encounterTrackable.EncounterGuid = "a^2 + b^2 = c^2";
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
-            projectile.SetProjectileSpriteRight("atomic_projectile", 8, 3, false, tk2dBaseSprite.Anchor.MiddleCenter, 6, 3);
+            projectile.SetProjectileSpriteRight("trigunometry_projectile_001", 10, 10, false, tk2dBaseSprite.Anchor.MiddleCenter, 8, 8);
             projectile.shouldRotate = true;
             projectile.gameObject.SetActive(false);
             FakePrefab.MarkAsFakePrefab(projectile.gameObject);
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             gun.DefaultModule.projectiles[0] = projectile;
-            projectile.AppliesPoison = true;
-            projectile.PoisonApplyChance = 0.7f;
-            projectile.healthEffect = PickupObjectDatabase.GetById(204).GetComponent<BulletStatusEffectItem>().HealthModifierEffect;
-            projectile.baseData.damage = 11f;
+            projectile.baseData.damage = 7f;
             projectile.baseData.speed = 17f;
             projectile.baseData.range = 8f;
             projectile.transform.parent = gun.barrelOffset;
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.CUSTOM;
-            gun.DefaultModule.customAmmoType = "gem";
+            gun.DefaultModule.customAmmoType = "white";
             ETGMod.Databases.Items.Add(gun, null, "ANY");
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
             PlayerController player = (PlayerController)gun.CurrentOwner;
-#pragma warning restore IDE0059 // Unnecessary assignment of a value
         }
 
         public override void OnPostFired(PlayerController player, Gun gun)
         {
             gun.PreventNormalFireAudio = true;
             AkSoundEngine.PostEvent("Play_WPN_magnum_shot_01", gameObject);
+            player.PostProcessProjectile += this.PostProcessProjectile;
+        }
+        public void PostProcessProjectile(Projectile projectile, float f)
+        {
+            int randomdmg = UnityEngine.Random.Range(1, 5);
+            if (counter == 0)
+            {
+                randomdmg1 = randomdmg*randomdmg;
+                projectile.baseData.damage = randomdmg1;
+                counter += 1;
+            }
+            else if (counter == 1)
+            {
+                randomdmg2 = randomdmg*randomdmg;
+                projectile.baseData.damage = randomdmg2;
+                counter += 1;
+            }
+            else if (counter == 2)
+            {
+                combineddmg = randomdmg1 + randomdmg2;
+                projectile.baseData.damage = combineddmg;
+                combineddmg = 0;
+                randomdmg1 = 0;
+                randomdmg2 = 0;
+                counter = 0;
+            }
         }
         private bool HasReloaded;
         protected void Update()
         {
             if (gun.CurrentOwner)
             {
-
                 if (!gun.PreventNormalFireAudio)
                 {
                     this.gun.PreventNormalFireAudio = true;
@@ -80,10 +103,11 @@ namespace GunRev
         {
             if (gun.IsReloading && this.HasReloaded)
             {
+                counter = 0;
                 HasReloaded = false;
                 AkSoundEngine.PostEvent("Stop_WPN_All", base.gameObject);
                 base.OnReloadPressed(player, gun, bSOMETHING);
-                AkSoundEngine.PostEvent("Play_WPN_magnum_reload_01", base.gameObject);
+                AkSoundEngine.PostEvent("Play_WPN_zapper_reload_01", base.gameObject);
             }
         }
     }

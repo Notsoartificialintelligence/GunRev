@@ -87,6 +87,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items + Guns\Guns\Gunbatus.cs" />
+    <Compile Include="Items + Guns\Guns\Trigunometry.cs" />
+    <Compile Include="Items + Guns\Items\Button.cs" />
+    <Compile Include="Items + Guns\Items\SilverCursor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enemies\BeamTurret.cs" />
     <Compile Include="Enemies\HoloBullet.cs" />
@@ -142,7 +146,9 @@
     <Compile Include="ToolBox\BeamToolbox.cs" />
     <Compile Include="ToolBox\EmmisiveBeams.cs" />
     <Compile Include="ToolBox\EnemyReplace.cs" />
+    <Compile Include="ToolBox\RandomProjectileStats.cs" />
     <Compile Include="ToolBox\ReflectionHelpers.cs" />
+    <Compile Include="ToolBox\RemoteBulletsProjectileBehaviour.cs" />
     <Compile Include="ToolBox\resourceLoaderSoundbanks.cs" />
     <Compile Include="ToolBox\SynergyForms.cs" />
     <Compile Include="ToolBox\ToolsOther.cs" />
@@ -221,6 +227,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ToolBox\packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\silvercursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\portalturret_middle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\button_idle_001.png" />
+    <EmbeddedResource Include="Resources\button_use_001.png" />
+    <EmbeddedResource Include="Resources\button_use_002.png" />
+    <EmbeddedResource Include="Resources\button_use_003.png" />
+    <EmbeddedResource Include="Resources\button_use_004.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

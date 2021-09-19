@@ -30,6 +30,7 @@ namespace GunRev
             gun.DefaultModule.numberOfShotsInClip = 6;
             gun.SetBaseMaxAmmo(6);
             gun.quality = PickupObject.ItemQuality.D;
+            gun.gunClass = GunClass.PISTOL;
             gun.encounterTrackable.EncounterGuid = "Reduce Reuse Recycle";
             gun.CanGainAmmo = false;
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
