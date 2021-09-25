@@ -27,8 +27,8 @@ namespace GunRev
         {
             GlobalDungeonData.ValidTilesets TargetTileset = GlobalDungeonData.ValidTilesets.MINEGEON;
             string nameAppend = "_aimines";
-            agdEnemyReplacementTiers.Add(GenerateEnemyReplacementTier("mineletReplace" + nameAppend, new DungeonPrerequisite[0], TargetTileset, Minelet, BeamTurret, .4f));
-            agdEnemyReplacementTiers.Add(GenerateEnemyReplacementTier("bulletkinReplace" + nameAppend, new DungeonPrerequisite[0], TargetTileset, BulletKin, BeamTurret, .2f));
+            agdEnemyReplacementTiers.Add(GenerateEnemyReplacementTier("mineletReplace" + nameAppend, new DungeonPrerequisite[0], TargetTileset, Minelet, BeamTurret, .2f));
+            agdEnemyReplacementTiers.Add(GenerateEnemyReplacementTier("bulletkinReplace" + nameAppend, new DungeonPrerequisite[0], TargetTileset, BulletKin, BeamTurret, .1f));
             return;
         }
         private static void InitReplacementEnemiesForHollow(List<AGDEnemyReplacementTier> agdEnemyReplacementTiers)

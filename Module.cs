@@ -66,6 +66,10 @@ namespace GunRev
                 SilverCursor.Register();
                 Button.Register();
 
+                //version 1.2.0
+                SlimePendant.Init();
+                ACERifle.Add();
+
                 //cheeky form transformations
                 //Guntry2.Add();
                 //Guntry3.Add();

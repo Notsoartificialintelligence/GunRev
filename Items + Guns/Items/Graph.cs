@@ -28,7 +28,7 @@ namespace GunRev
 
             item.quality = PickupObject.ItemQuality.C;
 
-            ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Accuracy, 2, StatModifier.ModifyMethod.MULTIPLICATIVE);
+            ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Accuracy, 0.5f, StatModifier.ModifyMethod.MULTIPLICATIVE);
         }
 
         public override void Pickup(PlayerController player)

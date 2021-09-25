@@ -39,8 +39,8 @@ namespace GunRev
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.CUSTOM;
             gun.DefaultModule.customAmmoType = "green_beam";
             gun.barrelOffset.transform.localPosition = new Vector3(0.875f, 0.4375f, 0f);
-            gun.SetBaseMaxAmmo(3000);
-            gun.ammo = 3000;
+            gun.SetBaseMaxAmmo(1500);
+            gun.ammo = 1500;
 
             gun.GetComponent<tk2dSpriteAnimator>().GetClipByName(gun.shootAnimation).wrapMode = tk2dSpriteAnimationClip.WrapMode.LoopSection;
             gun.GetComponent<tk2dSpriteAnimator>().GetClipByName(gun.shootAnimation).loopStart = 1;
@@ -83,7 +83,7 @@ namespace GunRev
             projectile.gameObject.SetActive(false);
             FakePrefab.MarkAsFakePrefab(projectile.gameObject);
             UnityEngine.Object.DontDestroyOnLoad(projectile);
-            projectile.baseData.damage = 70f;
+            projectile.baseData.damage = 10f;
             projectile.baseData.force *= 0.1f;
             projectile.baseData.speed *= 1f;
             beamComp.homingAngularVelocity = 360f;
