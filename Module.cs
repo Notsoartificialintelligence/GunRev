@@ -66,7 +66,7 @@ namespace GunRev
                 SilverCursor.Register();
                 Button.Register();
 
-                //version 1.2.0
+                //version 1.1.1
                 SlimePendant.Init();
                 ACERifle.Add();
 
