@@ -12,7 +12,7 @@ namespace GunRev
     public class Module : ETGModule
     {
         public static readonly string MOD_NAME = "Gundustrial Revolution";
-        public static readonly string VERSION = "1.1.0";
+        public static readonly string VERSION = "1.1.2";
         public static readonly string TEXT_COLOR = "#677e9e";
         public static string ZipFilePath;
         public static string FilePath;
