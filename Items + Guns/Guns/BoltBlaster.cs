@@ -21,7 +21,7 @@ namespace GunRev
 			gun.SetupSprite(null, "bolt_idle_001", 8);
 			gun.SetAnimationFPS(gun.shootAnimation, 16);
 			gun.SetBaseMaxAmmo(500);
-			gun.quality = PickupObject.ItemQuality.B;
+			gun.quality = PickupObject.ItemQuality.D;
 			gun.gunClass = GunClass.SHOTGUN;
 			gun.encounterTrackable.EncounterGuid = "A Nutty Adventure";
 
@@ -51,7 +51,7 @@ namespace GunRev
 				UnityEngine.Object.DontDestroyOnLoad(projectile);
 
 				projectile.gameObject.SetActive(false);
-				projectile.baseData.damage = 6f;
+				projectile.baseData.damage = 3f;
 				projectile.baseData.speed = 17f;
 				projectile.baseData.range = 10f;
 				projectile.transform.parent = gun.barrelOffset;

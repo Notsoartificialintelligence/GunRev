@@ -44,7 +44,6 @@ namespace GunRev
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.CUSTOM;
             gun.DefaultModule.customAmmoType = "Rifle";
             ETGMod.Databases.Items.Add(gun, null, "ANY");
-            PlayerController player = (PlayerController)gun.CurrentOwner;
         }
 
         public override void OnPostFired(PlayerController player, Gun gun)

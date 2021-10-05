@@ -27,6 +27,7 @@ namespace GunRev
                 ItemBuilder.Init();
                 Module.Strings = new AdvancedStringDB();
                 GungeonAPI.Tools.Init();
+                CustomClipAmmoTypeToolbox.Init();
 
                 Hook foyerCallbacksHook = new Hook(
                     typeof(Foyer).GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance),
@@ -42,7 +43,7 @@ namespace GunRev
                 Vintage.Add();
                 Atomic.Add();
                 Graph.Register();
-                HoloPlush.Register();
+                //HoloPlush.Register();
                 BoltBlaster.Add();
                 FamiliarPhone.Register();
                 Keyboard.Add();
@@ -51,7 +52,7 @@ namespace GunRev
                 BeamTurret.Init();
                 HoloBullet.Init();
                 RadCan.Register();
-                RefreshKey.Register();
+                //RefreshKey.Register();
                 WhileGunShoot.Add();
                 OilJar.Register();
                 //Guntry.Add();
@@ -69,6 +70,11 @@ namespace GunRev
                 //version 1.1.1
                 SlimePendant.Init();
                 ACERifle.Add();
+
+                //version 1.1.2
+                Dematerialiser.Register();
+                GungeonGun.Add();
+                Chair.Add();
 
                 //cheeky form transformations
                 //Guntry2.Add();
@@ -122,6 +128,12 @@ namespace GunRev
                 };
                 syn5.bonusSynergies = new List<CustomSynergyType>();
 
+                var syn6 = CustomSynergies.Add("Knife To A Gunfight", new List<string> { "ai:enter_the_gungeon", "ai:slime_pendant" }, null, true);
+                syn6.bonusSynergies = new List<CustomSynergyType>();
+
+                var syn7 = CustomSynergies.Add("Children Of Kaliber", new List<string> { "ai:enter_the_gungeon", "high_kaliber" }, null, true);
+                syn7.bonusSynergies = new List<CustomSynergyType>();
+
                 SynergyForms.AddSynergyForms();
 
                 Log($"{MOD_NAME} v{VERSION} started successfully.", TEXT_COLOR);
@@ -149,6 +161,7 @@ namespace GunRev
                     "guys i got another null what do i do",
                     "me when i when the when you when me i",
                     "hooks are the bane of my existence",
+                    "while (true)\n{\nShoot();\n}",
                     "Also try Prismatism!",
                     "Also try Planetside of Gunymede!",
                     "Also try OMITB!",

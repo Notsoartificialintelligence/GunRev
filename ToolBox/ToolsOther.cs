@@ -10,6 +10,13 @@ namespace GunRev
 {
     public static class ToolsOther
     {
+        public static void DisableSuperTinting(AIActor actor)
+        {
+            Material mat = actor.sprite.renderer.material;
+            mat.mainTexture = actor.sprite.renderer.material.mainTexture;
+            mat.EnableKeyword("BRIGHTNESS_CLAMP_ON");
+            mat.DisableKeyword("BRIGHTNESS_CLAMP_OFF");
+        }
         public static tk2dSpriteDefinition CopyDefinitionFrom(this tk2dSpriteDefinition other)
         {
             tk2dSpriteDefinition result = new tk2dSpriteDefinition

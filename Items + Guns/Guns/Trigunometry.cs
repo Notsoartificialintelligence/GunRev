@@ -75,7 +75,7 @@ namespace GunRev
             }
             else if (counter == 2)
             {
-                combineddmg = randomdmg1 + randomdmg2;
+                combineddmg = (int)Mathf.Sqrt(randomdmg1+randomdmg2);
                 projectile.baseData.damage = combineddmg;
                 combineddmg = 0;
                 randomdmg1 = 0;
@@ -104,6 +104,9 @@ namespace GunRev
             if (gun.IsReloading && this.HasReloaded)
             {
                 counter = 0;
+                combineddmg = 0;
+                randomdmg1 = 0;
+                randomdmg2 = 0;
                 HasReloaded = false;
                 AkSoundEngine.PostEvent("Stop_WPN_All", base.gameObject);
                 base.OnReloadPressed(player, gun, bSOMETHING);

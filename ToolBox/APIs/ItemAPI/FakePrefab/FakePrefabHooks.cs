@@ -20,6 +20,7 @@ namespace ItemAPI
                 typeof(FakePrefabHooks).GetMethod("AcquirePassiveItemPrefabDirectly")
             );
 
+
             //Same deal but for passives
             Hook activePickupHook = new Hook(
                 typeof(PlayerItem).GetMethod("Pickup"),
@@ -44,11 +45,12 @@ namespace ItemAPI
             );
 
             Hook instantiateO = new Hook(
-                typeof(Object).GetMethod("Instantiate", new Type[]{
-                    typeof(Object),
-                 }),
-                typeof(FakePrefabHooks).GetMethod("InstantiateO")
+              typeof(Object).GetMethod("orig_Instantiate", new Type[]{
+                typeof(Object),
+              }),
+              typeof(FakePrefabHooks).GetMethod("InstantiateO")
             );
+
 
             Hook instantiateOPR = new Hook(
                 typeof(Object).GetMethod("Instantiate", new Type[]{

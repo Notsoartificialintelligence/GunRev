@@ -52,14 +52,14 @@ namespace GunRev
         }
         public void PostProcessProjectile(Projectile projectile, float f)
         {
-            int FUCK = UnityEngine.Random.Range(0,10);
-            if (FUCK >= 7)
+            int FUCK = UnityEngine.Random.Range(0,100);
+            if (FUCK <= 3)
             {
                 ExplosiveModifier explosiveModifier = projectile.gameObject.AddComponent<ExplosiveModifier>();
                 explosiveModifier.doExplosion = true;
                 explosiveModifier.explosionData = GameManager.Instance.Dungeon.sharedSettingsPrefab.DefaultSmallExplosionData;
             }
-            else
+            else if (FUCK > 3 || FUCK < 50)
             {
                 projectile.OnPostUpdate += this.AddGoop;
             }

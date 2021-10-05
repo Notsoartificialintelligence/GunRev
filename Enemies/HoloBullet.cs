@@ -282,7 +282,7 @@ namespace GunRev
 				enemy.encounterTrackable.journalData.PrimaryDisplayName = "#HOLOKIN";
 				enemy.encounterTrackable.journalData.NotificationPanelDescription = "#HOLOKIN_SHORTDESC";
 				enemy.encounterTrackable.journalData.AmmonomiconFullEntry = "#HOLOKIN_LONGDESC";
-				EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, "ai:holokin");
+                EnemyAPI.EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, "ai:holokin");
 				EnemyDatabase.GetEntry("ai:holokin").ForcedPositionInAmmonomicon = 11;
 				EnemyDatabase.GetEntry("ai:holokin").isInBossTab = false;
 				EnemyDatabase.GetEntry("ai:holokin").isNormalEnemy = true;

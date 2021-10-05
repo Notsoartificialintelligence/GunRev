@@ -87,10 +87,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enemies\Omegear\Omegear.cs" />
+    <Compile Include="Enemies\Omegear\OmegearController.cs" />
+    <Compile Include="Enemies\Omegear\OmegearIntroController.cs" />
     <Compile Include="Items + Guns\Guns\ACERifle.cs" />
+    <Compile Include="Items + Guns\Guns\Chair.cs" />
     <Compile Include="Items + Guns\Guns\Gunbatus.cs" />
+    <Compile Include="Items + Guns\Guns\Gungeon.cs" />
     <Compile Include="Items + Guns\Guns\Trigunometry.cs" />
     <Compile Include="Items + Guns\Items\Button.cs" />
+    <Compile Include="Items + Guns\Items\Dematerialiser.cs" />
     <Compile Include="Items + Guns\Items\SilverCursor.cs" />
     <Compile Include="Items + Guns\Items\SlimePendant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,7 +142,9 @@
     <Compile Include="ToolBox\APIs\GungeonAPI\Tools.cs" />
     <Compile Include="ToolBox\APIs\ItemAPI\AdvancedGunBehaviour.cs" />
     <Compile Include="ToolBox\APIs\ItemAPI\CompanionBuilder.cs" />
+    <Compile Include="ToolBox\APIs\ItemAPI\CustomClipAmmoTypeToolbox.cs" />
     <Compile Include="ToolBox\APIs\ItemAPI\CustomSynergies.cs" />
+    <Compile Include="ToolBox\APIs\ItemAPI\EnemyBuilder.cs" />
     <Compile Include="ToolBox\APIs\ItemAPI\FakePrefab\FakePrefab.cs" />
     <Compile Include="ToolBox\APIs\ItemAPI\FakePrefab\FakePrefabHooks.cs" />
     <Compile Include="ToolBox\APIs\ItemAPI\GunTools.cs" />
@@ -260,6 +268,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\button_idle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\omegear\omegearicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dematerialiser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Clips\chair_uiclip.png" />
+    <EmbeddedResource Include="Resources\Clips\chair_uiclip_empty.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

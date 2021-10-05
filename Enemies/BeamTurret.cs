@@ -188,7 +188,7 @@ namespace GunRev
 					enemy.encounterTrackable.journalData.PrimaryDisplayName = "#BEAMTURRET";
 					enemy.encounterTrackable.journalData.NotificationPanelDescription = "#BEAMTURRET_SHORTDESC";
 					enemy.encounterTrackable.journalData.AmmonomiconFullEntry = "#BEAMTURRET_LONGDESC";
-					EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, "ai:beamturret");
+					EnemyAPI.EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, "ai:beamturret");
 					EnemyDatabase.GetEntry("ai:beamturret").ForcedPositionInAmmonomicon = 74;
 					EnemyDatabase.GetEntry("ai:beamturret").isInBossTab = false;
 					EnemyDatabase.GetEntry("ai:beamturret").isNormalEnemy = true;
@@ -249,7 +249,6 @@ namespace GunRev
 		{
 			public BeamTurretBullet() : base("default", false, false, false)
 			{
-				
 			}
 		}
 	}
