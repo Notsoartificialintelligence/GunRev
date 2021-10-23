@@ -17,7 +17,7 @@ namespace GunRev
                 float StatBooster = 5f;
                 StatModifier item = new StatModifier
                 {
-                    statToBoost = PlayerStats.StatType.MovementSpeed,
+                    statToBoost = PlayerStats.StatType.MoneyMultiplierFromEnemies,
                     amount = StatBooster,
                     modifyType = StatModifier.ModifyMethod.ADDITIVE
                 };

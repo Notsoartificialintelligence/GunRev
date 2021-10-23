@@ -69,11 +69,11 @@ namespace GunRev
             "01972dee89fc4404a5c408d50007dad5"
         };
         public static List<string> HoloKin = new List<string>() {
-            "holokin"
+            "79711df6b2ba4dfaa49b5502dadefcac"
         };
         public static List<string> BeamTurret = new List<string>()
         {
-            "beamturret"
+            "fdd43f47902945bab28910c8c01b6ea5"
         };
     }
 }

@@ -91,12 +91,17 @@
     <Compile Include="Enemies\Omegear\OmegearController.cs" />
     <Compile Include="Enemies\Omegear\OmegearIntroController.cs" />
     <Compile Include="Items + Guns\Guns\ACERifle.cs" />
+    <Compile Include="Items + Guns\Guns\BinaryBoxOn.cs" />
     <Compile Include="Items + Guns\Guns\Chair.cs" />
     <Compile Include="Items + Guns\Guns\Gunbatus.cs" />
     <Compile Include="Items + Guns\Guns\Gungeon.cs" />
+    <Compile Include="Items + Guns\Guns\Shockgun.cs" />
     <Compile Include="Items + Guns\Guns\Trigunometry.cs" />
     <Compile Include="Items + Guns\Items\Button.cs" />
+    <Compile Include="Items + Guns\Items\CryptoCurrency.cs" />
     <Compile Include="Items + Guns\Items\Dematerialiser.cs" />
+    <Compile Include="Items + Guns\Items\GildedInfusion.cs" />
+    <Compile Include="Items + Guns\Items\Robullets.cs" />
     <Compile Include="Items + Guns\Items\SilverCursor.cs" />
     <Compile Include="Items + Guns\Items\SlimePendant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -243,9 +248,6 @@
     <EmbeddedResource Include="Resources\silvercursor.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\portalturret_middle_001.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\slimebuddy\slimependant.png" />
     <EmbeddedResource Include="Resources\slimebuddy\slime_idle_001.png" />
     <EmbeddedResource Include="Resources\slimebuddy\slime_idle_002.png" />
@@ -278,6 +280,33 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Clips\chair_uiclip.png" />
     <EmbeddedResource Include="Resources\Clips\chair_uiclip_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\robullets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Clips\binaryclip.png" />
+    <EmbeddedResource Include="Resources\Clips\binaryclipempty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\crypturret\crypturret_idle_001.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_idle_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_001.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_002.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_003.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_004.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_005.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_006.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_007.png" />
+    <EmbeddedResource Include="Resources\crypturret\crypturret_intro_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\crypturret\crypto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gildedheart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

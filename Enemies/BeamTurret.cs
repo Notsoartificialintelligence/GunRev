@@ -18,7 +18,7 @@ namespace GunRev
 	public class BeamTurret : AIActor
 	{
 		public static GameObject prefab;
-		public static readonly string guid = "beamturret";
+		public static readonly string guid = "fdd43f47902945bab28910c8c01b6ea5";
 		public static GameObject shootpoint;
 		private static tk2dSpriteCollectionData BeamTurretCollection;
 		public static void Init()
@@ -122,12 +122,12 @@ namespace GunRev
 						10,
 					}, "tell", tk2dSpriteAnimationClip.WrapMode.Once).fps = 5f;
 				}
-					shootpoint = new GameObject("beamturret top");
-					shootpoint.transform.parent = enemy.transform;
-					shootpoint.transform.position = enemy.sprite.WorldTopCenter;
-					GameObject position = enemy.transform.Find("beamturret top").gameObject;
-					var bs = prefab.GetComponent<BehaviorSpeculator>();
-					bs.TargetBehaviors = new List<TargetBehaviorBase>
+				shootpoint = new GameObject("beamturret top");
+				shootpoint.transform.parent = enemy.transform;
+				shootpoint.transform.position = enemy.sprite.WorldTopCenter;
+				GameObject position = enemy.transform.Find("beamturret top").gameObject;
+				var bs = prefab.GetComponent<BehaviorSpeculator>();
+				bs.TargetBehaviors = new List<TargetBehaviorBase>
 			{
 				new TargetPlayerBehavior
 				{
@@ -139,66 +139,51 @@ namespace GunRev
 					PauseTime = 0.25f,
 				}
 			};
-					bs.AttackBehaviors = new List<AttackBehaviorBase>() {
+				bs.AttackBehaviors = new List<AttackBehaviorBase>() {
 				new ShootBehavior() {
 					ShootPoint = position,
 					BulletScript = new CustomBulletScriptSelector(typeof(BeamTurretScript)),
 					LeadAmount = 0f,
 					AttackCooldown = 8f,
-					TellAnimation = "tell",
-					FireAnimation = "idle",
+					ChargeAnimation = "tell",
+					FireAnimation = "tell",
 					RequiresLineOfSight = true,
 					Uninterruptible = false,
 				}
 				};
-					bs.MovementBehaviors = new List<MovementBehaviorBase>
-			{
-				new SeekTargetBehavior
+				Game.Enemies.Add("ai:beamturret", enemy.aiActor);
+				SpriteBuilder.AddSpriteToCollection("GunRev/Resources/beamturret/beamturret_idle_001", SpriteBuilder.ammonomiconCollection);
+				if (enemy.GetComponent<EncounterTrackable>() != null)
 				{
-					StopWhenInRange = false,
-					CustomRange = 15f,
-					LineOfSight = false,
-					ReturnToSpawn = false,
-					SpawnTetherDistance = 0f,
-					PathInterval = 0.5f,
-					SpecifyRange = false,
-					MinActiveRange = 0f,
-					MaxActiveRange = 0f
+					UnityEngine.Object.Destroy(enemy.GetComponent<EncounterTrackable>());
 				}
-			};
-					Game.Enemies.Add("ai:beamturret", enemy.aiActor);
-					SpriteBuilder.AddSpriteToCollection("GunRev/Resources/beamturret/beamturret_idle_001", SpriteBuilder.ammonomiconCollection);
-					if (enemy.GetComponent<EncounterTrackable>() != null)
-					{
-						UnityEngine.Object.Destroy(enemy.GetComponent<EncounterTrackable>());
-					}
-					enemy.encounterTrackable = enemy.gameObject.AddComponent<EncounterTrackable>();
-					enemy.encounterTrackable.journalData = new JournalEntry();
-					enemy.encounterTrackable.EncounterGuid = "ai:beamturret";
-					enemy.encounterTrackable.prerequisites = new DungeonPrerequisite[0];
-					enemy.encounterTrackable.journalData.SuppressKnownState = false;
-					enemy.encounterTrackable.journalData.IsEnemy = true;
-					enemy.encounterTrackable.journalData.SuppressInAmmonomicon = false;
-					enemy.encounterTrackable.ProxyEncounterGuid = "";
-					enemy.encounterTrackable.journalData.AmmonomiconSprite = "GunRev/Resources/beamturret/beamturret_idle_001";
-					enemy.encounterTrackable.journalData.enemyPortraitSprite = ItemAPI.ResourceExtractor.GetTextureFromResource("GunRev\\Resources\\beamturretammonomicon.png");
-					Module.Strings.Enemies.Set("#BEAMTURRET", "Beam Turret");
-					Module.Strings.Enemies.Set("#BEAMTURRET_SHORTDESC", "Infrared");
-					Module.Strings.Enemies.Set("#BEAMTURRET_LONGDESC", "Cold, unloving machines that dwell in the Black Powder Mines.\n\nBuilt by some madman with too much time on their hands, these killing machines have remarkable intricacy.");
-					enemy.encounterTrackable.journalData.PrimaryDisplayName = "#BEAMTURRET";
-					enemy.encounterTrackable.journalData.NotificationPanelDescription = "#BEAMTURRET_SHORTDESC";
-					enemy.encounterTrackable.journalData.AmmonomiconFullEntry = "#BEAMTURRET_LONGDESC";
-					EnemyAPI.EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, "ai:beamturret");
-					EnemyDatabase.GetEntry("ai:beamturret").ForcedPositionInAmmonomicon = 74;
-					EnemyDatabase.GetEntry("ai:beamturret").isInBossTab = false;
-					EnemyDatabase.GetEntry("ai:beamturret").isNormalEnemy = true;
-				}
+				enemy.encounterTrackable = enemy.gameObject.AddComponent<EncounterTrackable>();
+				enemy.encounterTrackable.journalData = new JournalEntry();
+				enemy.encounterTrackable.EncounterGuid = "b80a0d3258fd49fe97748e02529af5c5";
+				enemy.encounterTrackable.prerequisites = new DungeonPrerequisite[0];
+				enemy.encounterTrackable.journalData.SuppressKnownState = false;
+				enemy.encounterTrackable.journalData.IsEnemy = true;
+				enemy.encounterTrackable.journalData.SuppressInAmmonomicon = false;
+				enemy.encounterTrackable.ProxyEncounterGuid = string.Empty;
+				enemy.encounterTrackable.journalData.AmmonomiconSprite = "GunRev/Resources/beamturret/beamturret_idle_001";
+				enemy.encounterTrackable.journalData.enemyPortraitSprite = ItemAPI.ResourceExtractor.GetTextureFromResource("GunRev\\Resources\\beamturretammonomicon.png");
+				Module.Strings.Enemies.Set("#BEAMTURRET", "Beam Turret");
+				Module.Strings.Enemies.Set("#BEAMTURRET_SHORTDESC", "Infrared");
+				Module.Strings.Enemies.Set("#BEAMTURRET_LONGDESC", "Cold, unloving machines that dwell in the Black Powder Mines.\n\nBuilt by some madman with too much time on their hands, these killing machines have remarkable intricacy.");
+				enemy.encounterTrackable.journalData.PrimaryDisplayName = "#BEAMTURRET";
+				enemy.encounterTrackable.journalData.NotificationPanelDescription = "#BEAMTURRET_SHORTDESC";
+				enemy.encounterTrackable.journalData.AmmonomiconFullEntry = "#BEAMTURRET_LONGDESC";
+				EnemyAPI.EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, enemy.aiActor.EnemyGuid);
+				EnemyDatabase.GetEntry(enemy.aiActor.EnemyGuid).ForcedPositionInAmmonomicon = 74;
+				EnemyDatabase.GetEntry(enemy.aiActor.EnemyGuid).isInBossTab = false;
+				EnemyDatabase.GetEntry(enemy.aiActor.EnemyGuid).isNormalEnemy = true;
 			}
-		
+		}
+
 
 		private static string[] spritePaths = new string[]
 {
-			
+
 			"GunRev/Resources/beamturret/beamturret_idle_001",
 
 			"GunRev/Resources/beamturret/beamturret_die_001",
@@ -239,7 +224,7 @@ namespace GunRev
 				if (this.BulletBank && this.BulletBank.aiActor && this.BulletBank.aiActor.TargetRigidbody) { base.BulletBank.Bullets.Add(EnemyDatabase.GetOrLoadByGuid("01972dee89fc4404a5c408d50007dad5").bulletBank.GetBullet("default")); }
 				for (int i = 0; i < 180; i++)
 				{
-					base.Fire(new Direction(i*2, Brave.BulletScript.DirectionType.Absolute, -1f), new Speed(5f, SpeedType.Absolute), new BeamTurretBullet());
+					base.Fire(new Direction(i * 2, Brave.BulletScript.DirectionType.Absolute, -1f), new Speed(5f, SpeedType.Absolute), new BeamTurretBullet());
 					yield return this.Wait(1);
 				}
 				yield break;

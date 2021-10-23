@@ -38,7 +38,7 @@ namespace GunRev
 	public class HoloBullet
 	{
 		public static GameObject prefab;
-		public static readonly string guid = "holokin";
+		public static readonly string guid = "79711df6b2ba4dfaa49b5502dadefcac";
 		private static tk2dSpriteCollectionData HolobulletCollection;
 		public static void Init()
 		{
@@ -77,7 +77,7 @@ namespace GunRev
 						"run_front_right",
 						"run_front_left",
 						"run_back_left",
-						
+
 					}
 				};
 				aiAnimator.IdleAnimation = new DirectionalAnimation
@@ -111,7 +111,7 @@ namespace GunRev
 				};
 				bool flag = HolobulletCollection == null;
 				if (flag)
-                {
+				{
 					HolobulletCollection = SpriteBuilder.ConstructCollection(prefab, "Holobullet_Collection");
 					UnityEngine.Object.DontDestroyOnLoad(HolobulletCollection);
 					for (int i = 0; i < spritePaths.Length; i++)
@@ -268,12 +268,12 @@ namespace GunRev
 				}
 				enemy.encounterTrackable = enemy.gameObject.AddComponent<EncounterTrackable>();
 				enemy.encounterTrackable.journalData = new JournalEntry();
-				enemy.encounterTrackable.EncounterGuid = "ai:holokin";
+				enemy.encounterTrackable.EncounterGuid = "ed4759bb5ccd4566a0ba8709782df1d5";
 				enemy.encounterTrackable.prerequisites = new DungeonPrerequisite[0];
 				enemy.encounterTrackable.journalData.SuppressKnownState = false;
 				enemy.encounterTrackable.journalData.IsEnemy = true;
 				enemy.encounterTrackable.journalData.SuppressInAmmonomicon = false;
-				enemy.encounterTrackable.ProxyEncounterGuid = "";
+				enemy.encounterTrackable.ProxyEncounterGuid = string.Empty;
 				enemy.encounterTrackable.journalData.AmmonomiconSprite = "GunRev/Resources/holobullet/holobullet_idle_left_001";
 				enemy.encounterTrackable.journalData.enemyPortraitSprite = ItemAPI.ResourceExtractor.GetTextureFromResource("GunRev\\Resources\\holokinammonomicon.png");
 				Module.Strings.Enemies.Set("#HOLOKIN", "Holo-Kin");
@@ -282,10 +282,10 @@ namespace GunRev
 				enemy.encounterTrackable.journalData.PrimaryDisplayName = "#HOLOKIN";
 				enemy.encounterTrackable.journalData.NotificationPanelDescription = "#HOLOKIN_SHORTDESC";
 				enemy.encounterTrackable.journalData.AmmonomiconFullEntry = "#HOLOKIN_LONGDESC";
-                EnemyAPI.EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, "ai:holokin");
-				EnemyDatabase.GetEntry("ai:holokin").ForcedPositionInAmmonomicon = 11;
-				EnemyDatabase.GetEntry("ai:holokin").isInBossTab = false;
-				EnemyDatabase.GetEntry("ai:holokin").isNormalEnemy = true;
+				EnemyAPI.EnemyBuilder.AddEnemyToDatabase(enemy.gameObject, enemy.aiActor.EnemyGuid);
+				EnemyDatabase.GetEntry(enemy.aiActor.EnemyGuid).ForcedPositionInAmmonomicon = 11;
+				EnemyDatabase.GetEntry(enemy.aiActor.EnemyGuid).isInBossTab = false;
+				EnemyDatabase.GetEntry(enemy.aiActor.EnemyGuid).isNormalEnemy = true;
 			}
 		}
 
@@ -365,7 +365,7 @@ namespace GunRev
 			private void Start()
 			{
 				m_StartRoom = aiActor.GetAbsoluteParentRoom();
-                HoloKinBehaviour holoKinBehaviour = aiActor.gameObject.AddComponent<HoloKinBehaviour>() as HoloKinBehaviour;
+				HoloKinBehaviour holoKinBehaviour = aiActor.gameObject.AddComponent<HoloKinBehaviour>() as HoloKinBehaviour;
 			}
 		}
 		public class BasicBullet : Bullet

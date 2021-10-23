@@ -12,7 +12,7 @@ namespace GunRev
     public class Module : ETGModule
     {
         public static readonly string MOD_NAME = "Gundustrial Revolution";
-        public static readonly string VERSION = "1.1.2";
+        public static readonly string VERSION = "1.1.3";
         public static readonly string TEXT_COLOR = "#677e9e";
         public static string ZipFilePath;
         public static string FilePath;
@@ -21,6 +21,9 @@ namespace GunRev
         {
             try
             {
+                HashSet<string> _LockedNamespaces = OMITBReflectionHelpers.ReflectGetField<HashSet<string>>(typeof(IDPool<AIActor>), "_LockedNamespaces", Gungeon.Game.Enemies);
+                _LockedNamespaces.Remove("gungeon");
+
                 EnemyAPI.Hooks.Init();
                 EnemyAPI.EnemyTools.Init();
                 EnemyAPI.EnemyBuilder.Init();
@@ -75,6 +78,13 @@ namespace GunRev
                 Dematerialiser.Register();
                 GungeonGun.Add();
                 Chair.Add();
+
+                //version 1.1.3
+                Robullets.Register();
+                //BinaryBoxOn.Add();
+                //Shockgun.Add();
+                Cryptocurrency.Init();
+                GildedInfusion.Register();
 
                 //cheeky form transformations
                 //Guntry2.Add();
@@ -134,6 +144,9 @@ namespace GunRev
                 var syn7 = CustomSynergies.Add("Children Of Kaliber", new List<string> { "ai:enter_the_gungeon", "high_kaliber" }, null, true);
                 syn7.bonusSynergies = new List<CustomSynergyType>();
 
+                var syn8 = CustomSynergies.Add("Sentry Mode Activated", new List<string> { "ai:robullets", "portable_turret" }, null, true);
+                syn8.bonusSynergies = new List<CustomSynergyType>();
+
                 SynergyForms.AddSynergyForms();
 
                 Log($"{MOD_NAME} v{VERSION} started successfully.", TEXT_COLOR);
@@ -174,7 +187,7 @@ namespace GunRev
                 int index = randomselector.Next(Quotes.Count);
                 string idkwhattocallthis = Quotes[index];
                 Log(idkwhattocallthis, TEXT_COLOR);
-
+                Gungeon.Game.Enemies.LockNamespace("gungeon");
             }
 
             catch (Exception e)
@@ -198,7 +211,7 @@ namespace GunRev
             orig(self);
             EnemyReplace.RunReplace(m_cachedReplacementTiers);
         }
-        public static void Log(string text, string color="#FFFFFF")
+        public static void Log(string text, string color = "#FFFFFF")
         {
             ETGModConsole.Log($"<color={color}>{text}</color>");
         }
