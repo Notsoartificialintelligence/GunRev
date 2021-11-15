@@ -12,7 +12,7 @@ namespace GunRev
     public class Module : ETGModule
     {
         public static readonly string MOD_NAME = "Gundustrial Revolution";
-        public static readonly string VERSION = "1.1.3";
+        public static readonly string VERSION = "1.1.4";
         public static readonly string TEXT_COLOR = "#677e9e";
         public static string ZipFilePath;
         public static string FilePath;
@@ -86,6 +86,13 @@ namespace GunRev
                 Cryptocurrency.Init();
                 GildedInfusion.Register();
 
+                //version 1.1.4
+                Piston.Add();
+                TNTItem.Init();
+                //StackOfDirt.Init();
+                LaserShotgun.Add();
+                DiscouragementBeam.Add();
+
                 //cheeky form transformations
                 //Guntry2.Add();
                 //Guntry3.Add();
@@ -104,7 +111,7 @@ namespace GunRev
                 };
                 syn.bonusSynergies = new List<CustomSynergyType>();
 
-                var syn1 = CustomSynergies.Add("Battery Buddies", new List<string> { "ai:vintage", "thunderclap" }, null, false);
+                var syn1 = CustomSynergies.Add("Battery Buddies", new List<string> { "ai:vintage", "thunderclap" }, null, true);
                 syn1.ActiveWhenGunUnequipped = false;
                 syn1.bonusSynergies = new List<CustomSynergyType>();
 
@@ -133,12 +140,12 @@ namespace GunRev
                 syn5.statModifiers = new List<StatModifier>(0)
                 {
                     StatModifier.Create(PlayerStats.StatType.Curse,StatModifier.ModifyMethod.ADDITIVE,1f),
-                    StatModifier.Create(PlayerStats.StatType.Accuracy,StatModifier.ModifyMethod.ADDITIVE,3f),
+                    StatModifier.Create(PlayerStats.StatType.Accuracy,StatModifier.ModifyMethod.ADDITIVE,-3f),
                     StatModifier.Create(PlayerStats.StatType.ReloadSpeed,StatModifier.ModifyMethod.MULTIPLICATIVE,0.75f),
                 };
                 syn5.bonusSynergies = new List<CustomSynergyType>();
 
-                var syn6 = CustomSynergies.Add("Knife To A Gunfight", new List<string> { "ai:enter_the_gungeon", "ai:slime_pendant" }, null, true);
+                var syn6 = CustomSynergies.Add("Knife To A Gunfight", new List<string> { "ai:enter_the_gungeon", "ai:slime_pendant" }, null, false);
                 syn6.bonusSynergies = new List<CustomSynergyType>();
 
                 var syn7 = CustomSynergies.Add("Children Of Kaliber", new List<string> { "ai:enter_the_gungeon", "high_kaliber" }, null, true);
@@ -146,6 +153,32 @@ namespace GunRev
 
                 var syn8 = CustomSynergies.Add("Sentry Mode Activated", new List<string> { "ai:robullets", "portable_turret" }, null, true);
                 syn8.bonusSynergies = new List<CustomSynergyType>();
+
+                var syn9 = CustomSynergies.Add("Isn't It Iron Pick", new List<string> { "ai:piston", "big_iron" }, null, true);
+                syn9.bonusSynergies = new List<CustomSynergyType>();
+
+                if (PickupObjectDatabase.GetByEncounterName("Dispenser") != null)
+                {
+                    var syn10 = CustomSynergies.Add("Redstone Engineering", new List<string> { "ai:piston", "cel:dispenser" }, null, true);
+                    syn10.bonusSynergies = new List<CustomSynergyType>();
+                }
+
+                //var syn11 = CustomSynergies.Add("Cobblestone", new List<string> { "ai:stack_of_dirt" }, new List<string> { "pink_guon_stone", "red_guon_stone", "white_guon_stone", "orange_guon_stone", "clear_guon_stone", "blue_guon_stone", "green_guon_stone", "glass_guon_stone" }, true);
+                //syn11.bonusSynergies = new List<CustomSynergyType>();
+
+                //var syn12 = CustomSynergies.Add("Brick Block", new List<string> { "ai:stack_of_dirt" }, new List<string> { "brick_breaker", "brick_of_cash" }, true);
+                //syn12.bonusSynergies = new List<CustomSynergyType>();
+
+                var syn13 = CustomSynergies.Add("Aperture Science", new List<string> { "ai:thermal_discouragement_beam", "science_cannon" }, null, true);
+                syn13.bonusSynergies = new List<CustomSynergyType>();
+
+                var syn14 = CustomSynergies.Add("Upgrades People, Upgrades!", new List<string> { "ai:laser_shotgun", "laser_sight" }, null, false);
+                syn14.ActiveWhenGunUnequipped = false;
+                syn14.statModifiers = new List<StatModifier>(0)
+                {
+                    StatModifier.Create(PlayerStats.StatType.RangeMultiplier,StatModifier.ModifyMethod.ADDITIVE,0.5f),
+                };
+                syn14.bonusSynergies = new List<CustomSynergyType>();
 
                 SynergyForms.AddSynergyForms();
 
@@ -174,7 +207,6 @@ namespace GunRev
                     "guys i got another null what do i do",
                     "me when i when the when you when me i",
                     "hooks are the bane of my existence",
-                    "while (true)\n{\nShoot();\n}",
                     "Also try Prismatism!",
                     "Also try Planetside of Gunymede!",
                     "Also try OMITB!",
@@ -182,6 +214,7 @@ namespace GunRev
                     "Also try Cutting Room Floor!",
                     "Also try A Bleaker Item Pack!",
                     "Also try King's Items!",
+                    "Also try Knife To A Gunfight!"
                 };
                 System.Random randomselector = new System.Random();
                 int index = randomselector.Next(Quotes.Count);
@@ -192,7 +225,7 @@ namespace GunRev
 
             catch (Exception e)
             {
-                ETGModConsole.Log($"<color=#{TEXT_COLOR}>{MOD_NAME}: {e.Message}</color>");
+                ETGModConsole.Log($"<color={TEXT_COLOR}>{MOD_NAME}: {e.Message}</color>");
                 ETGModConsole.Log(e.StackTrace);
                 Log(e.Message);
                 Log("\t" + e.StackTrace);

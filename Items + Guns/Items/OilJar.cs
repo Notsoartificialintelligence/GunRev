@@ -28,8 +28,8 @@ namespace GunRev
 
             item.quality = PickupObject.ItemQuality.C;
 
-            ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.RateOfFire, 0.5f, StatModifier.ModifyMethod.ADDITIVE);
-            ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ReloadSpeed, 0.5f, StatModifier.ModifyMethod.ADDITIVE);
+            ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.RateOfFire, 1f, StatModifier.ModifyMethod.ADDITIVE);
+            ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ReloadSpeed, -0.4f, StatModifier.ModifyMethod.ADDITIVE);
         }
 
         public override void Pickup(PlayerController player)
@@ -42,7 +42,6 @@ namespace GunRev
         {
             Tools.Print($"Player dropped {this.DisplayName}");
             return base.Drop(player);
-
         }
     }
 }

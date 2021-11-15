@@ -10,6 +10,85 @@ namespace GunRev
 {
     public static class ToolsOther
     {
+        public static SpeculativeRigidbody GenerateOrAddToRigidBody(GameObject targetObject, CollisionLayer collisionLayer, PixelCollider.PixelColliderGeneration colliderGenerationMode = PixelCollider.PixelColliderGeneration.Tk2dPolygon, bool collideWithTileMap = false, bool CollideWithOthers = true, bool CanBeCarried = true, bool CanBePushed = false, bool RecheckTriggers = false, bool IsTrigger = false, bool replaceExistingColliders = false, bool UsesPixelsAsUnitSize = false, IntVector2? dimensions = null, IntVector2? offset = null)
+        {
+            SpeculativeRigidbody orAddComponent = targetObject.GetOrAddComponent<SpeculativeRigidbody>();
+            orAddComponent.CollideWithOthers = CollideWithOthers;
+            orAddComponent.CollideWithTileMap = collideWithTileMap;
+            orAddComponent.Velocity = Vector2.zero;
+            orAddComponent.MaxVelocity = Vector2.zero;
+            orAddComponent.ForceAlwaysUpdate = false;
+            orAddComponent.CanPush = false;
+            orAddComponent.CanBePushed = CanBePushed;
+            orAddComponent.PushSpeedModifier = 1f;
+            orAddComponent.CanCarry = false;
+            orAddComponent.CanBeCarried = CanBeCarried;
+            orAddComponent.PreventPiercing = false;
+            orAddComponent.SkipEmptyColliders = false;
+            orAddComponent.RecheckTriggers = RecheckTriggers;
+            orAddComponent.UpdateCollidersOnRotation = false;
+            orAddComponent.UpdateCollidersOnScale = false;
+            IntVector2 intVector = IntVector2.Zero;
+            IntVector2 intVector2 = IntVector2.Zero;
+            if (colliderGenerationMode != PixelCollider.PixelColliderGeneration.Tk2dPolygon)
+            {
+                if (dimensions != null)
+                {
+                    intVector2 = dimensions.Value;
+                    if (!UsesPixelsAsUnitSize)
+                    {
+                        intVector2 = new IntVector2(intVector2.x * 16, intVector2.y * 16);
+                    }
+                }
+                if (offset != null)
+                {
+                    intVector = offset.Value;
+                    if (!UsesPixelsAsUnitSize)
+                    {
+                        intVector = new IntVector2(intVector.x * 16, intVector.y * 16);
+                    }
+                }
+            }
+            PixelCollider item = new PixelCollider
+            {
+                ColliderGenerationMode = colliderGenerationMode,
+                CollisionLayer = collisionLayer,
+                IsTrigger = IsTrigger,
+                BagleUseFirstFrameOnly = (colliderGenerationMode == PixelCollider.PixelColliderGeneration.Tk2dPolygon),
+                SpecifyBagelFrame = string.Empty,
+                BagelColliderNumber = 0,
+                ManualOffsetX = intVector.x,
+                ManualOffsetY = intVector.y,
+                ManualWidth = intVector2.x,
+                ManualHeight = intVector2.y,
+                ManualDiameter = 0,
+                ManualLeftX = 0,
+                ManualLeftY = 0,
+                ManualRightX = 0,
+                ManualRightY = 0
+            };
+            if (replaceExistingColliders | orAddComponent.PixelColliders == null)
+            {
+                orAddComponent.PixelColliders = new List<PixelCollider>
+                {
+                    item
+                };
+            }
+            else
+            {
+                orAddComponent.PixelColliders.Add(item);
+            }
+            if (orAddComponent.sprite && colliderGenerationMode == PixelCollider.PixelColliderGeneration.Tk2dPolygon)
+            {
+                Bounds bounds = orAddComponent.sprite.GetBounds();
+                orAddComponent.sprite.GetTrueCurrentSpriteDef().colliderVertices = new Vector3[]
+                {
+                    bounds.center - bounds.extents,
+                    bounds.center + bounds.extents
+                };
+            }
+            return orAddComponent;
+        }
         public static void DisableSuperTinting(AIActor actor)
         {
             Material mat = actor.sprite.renderer.material;

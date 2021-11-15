@@ -251,7 +251,7 @@ namespace GunRev
 				{
 					StopWhenInRange = true,
 					CustomRange = 15f,
-					LineOfSight = false,
+					LineOfSight = true,  
 					ReturnToSpawn = false,
 					SpawnTetherDistance = 0f,
 					PathInterval = 0.5f,

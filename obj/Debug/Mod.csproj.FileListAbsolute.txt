@@ -219,7 +219,6 @@ C:\Users\nesss\source\repos\GunRev\bin\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\nesss\source\repos\GunRev\bin\Debug\UnityEngine.ScreenCaptureModule.dll
 C:\Users\nesss\source\repos\GunRev\bin\Debug\YamlDotNet.dll
 C:\Users\nesss\source\repos\GunRev\bin\Debug\Newtonsoft.Json.dll
-C:\Users\nesss\source\repos\GunRev\bin\Debug\UnityEngine.dll
 C:\Users\nesss\source\repos\GunRev\bin\Debug\UnityEngine.SharedInternalsModule.dll
 C:\Users\nesss\source\repos\GunRev\bin\Debug\UnityEngine.UnityWebRequestModule.dll
 C:\Users\nesss\source\repos\GunRev\bin\Debug\UnityEngine.AccessibilityModule.dll

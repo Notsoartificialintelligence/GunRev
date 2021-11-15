@@ -58,6 +58,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="UnityEngine.Base.mm">
       <HintPath>..\CustomItems\CustomItems\bin\Debug\UnityEngine.Base.mm.dll</HintPath>
     </Reference>
@@ -93,8 +94,11 @@
     <Compile Include="Items + Guns\Guns\ACERifle.cs" />
     <Compile Include="Items + Guns\Guns\BinaryBoxOn.cs" />
     <Compile Include="Items + Guns\Guns\Chair.cs" />
+    <Compile Include="Items + Guns\Guns\DiscouragementBeam.cs" />
     <Compile Include="Items + Guns\Guns\Gunbatus.cs" />
     <Compile Include="Items + Guns\Guns\Gungeon.cs" />
+    <Compile Include="Items + Guns\Guns\LaserShotgun.cs" />
+    <Compile Include="Items + Guns\Guns\Piston.cs" />
     <Compile Include="Items + Guns\Guns\Shockgun.cs" />
     <Compile Include="Items + Guns\Guns\Trigunometry.cs" />
     <Compile Include="Items + Guns\Items\Button.cs" />
@@ -104,6 +108,8 @@
     <Compile Include="Items + Guns\Items\Robullets.cs" />
     <Compile Include="Items + Guns\Items\SilverCursor.cs" />
     <Compile Include="Items + Guns\Items\SlimePendant.cs" />
+    <Compile Include="Items + Guns\Items\StackOfDirt.cs" />
+    <Compile Include="Items + Guns\Items\TNT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enemies\BeamTurret.cs" />
     <Compile Include="Enemies\HoloBullet.cs" />
@@ -307,6 +313,66 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\gildedheart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Clips\redstone_clip.png" />
+    <EmbeddedResource Include="Resources\Clips\redstone_clip_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\blocks\brick_destroy_001.png" />
+    <EmbeddedResource Include="Resources\blocks\brick_destroy_002.png" />
+    <EmbeddedResource Include="Resources\blocks\brick_destroy_003.png" />
+    <EmbeddedResource Include="Resources\blocks\brick_destroy_004.png" />
+    <EmbeddedResource Include="Resources\blocks\brick_destroy_005.png" />
+    <EmbeddedResource Include="Resources\blocks\brick_idle_001.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_001.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_002.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_003.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_004.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_005.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_006.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_007.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_destroy_008.png" />
+    <EmbeddedResource Include="Resources\blocks\cobble_idle_001.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_001.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_002.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_003.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_004.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_005.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_006.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_007.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_destroy_008.png" />
+    <EmbeddedResource Include="Resources\blocks\dirt_idle_001.png" />
+    <EmbeddedResource Include="Resources\blocks\stonebrick_destroy_001.png" />
+    <EmbeddedResource Include="Resources\blocks\stonebrick_destroy_002.png" />
+    <EmbeddedResource Include="Resources\blocks\stonebrick_destroy_003.png" />
+    <EmbeddedResource Include="Resources\blocks\stonebrick_destroy_004.png" />
+    <EmbeddedResource Include="Resources\blocks\stonebrick_idle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\tnt\tnt.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_idle_001.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_001.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_002.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_003.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_004.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_005.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_006.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_007.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_008.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_009.png" />
+    <EmbeddedResource Include="Resources\tnt\tnt_prime_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\blocks\dirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\lasershotgun_impact_001.png" />
+    <EmbeddedResource Include="Resources\lasershotgun_middle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\discouragementbeam_impact_001.png" />
+    <EmbeddedResource Include="Resources\discouragementbeam_mid_001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
